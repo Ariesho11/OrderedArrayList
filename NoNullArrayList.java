@@ -4,4 +4,15 @@ public class NoNullArrayList<T> extends ArrayList<T>{
 
   public NoNullArrayList(){  }
   public NoNullArrayList(int initialCapacity){}
+
+  public String set(int index, String element){
+    return"";
+  }
+
+  public boolean add(String element){
+    return true;
+  }
+  
+  public void add(int index, String element){
+  }
 }
