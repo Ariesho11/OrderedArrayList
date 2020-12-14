@@ -26,5 +26,12 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
       if(super.get(i).compareTo(element) > 0) super.add(i, element);
     }
   }
-  
+
+  private int findIndex(T element){
+    for(int i = 0; i < super.size(); i++){
+      if(super.get(i).compareTo(element) > 0) return i;
+    }
+    return 0;
+  }
+
 }
