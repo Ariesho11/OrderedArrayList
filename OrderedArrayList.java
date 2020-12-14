@@ -5,13 +5,17 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
   }
 
   public T set(int index, T element){
-    return element;
+    T temp = super.remove(index);
+    for(int i = 0; i < super.size(); i++){
+      if(super.get(i).compareTo(element) > 0) super.add(i, element);
+    }
+    return temp;
   }
 
   public boolean add(T element){
     return true;
   }
   public void add(int index, T element){
-    
+
   }
 }
