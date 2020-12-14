@@ -6,30 +6,24 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
 
   public T set(int index, T element){
     T temp = super.remove(index);
-    for(int i = 0; i < super.size(); i++){
-      if(super.get(i).compareTo(element) > 0) super.add(i, element);
-    }
+    super.add(findIndex(element), element);
     return temp;
   }
 
   public boolean add(T element){
-    for(int i = 0; i < super.size(); i++){
-      if(super.get(i).compareTo(element) > 0){
-        super.add(i, element);
-        return true;
-      }
-    }
+    super.add(findIndex(element), element);
     return true;
   }
   public void add(int index, T element){
-    for(int i = 0; i < super.size(); i++){
-      if(super.get(i).compareTo(element) > 0) super.add(i, element);
-    }
+    super.add(findIndex(element), element);
   }
 
   private int findIndex(T element){
     for(int i = 0; i < super.size(); i++){
-      if(super.get(i).compareTo(element) > 0) return i;
+      if(element == null){
+        throw new IllegalArgumentException("There should be no Nulls >:^(");
+      }
+      else if(super.get(i).compareTo(element) >= 0) return i;
     }
     return 0;
   }
