@@ -5,7 +5,8 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
   }
 
   public T set(int index, T element){
-    T temp = super.remove(index);
+    T temp = super.get(index);
+    super.remove(index);
     super.add(findIndex(element), element);
     return temp;
   }
