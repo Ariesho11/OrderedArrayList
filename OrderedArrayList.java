@@ -19,13 +19,14 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
   }
 
   private int findIndex(T element){
-    for(int i = 0; i < super.size(); i++){
-      if(element == null){
-        throw new IllegalArgumentException("There should be no Nulls >:^(");
-      }
-      else if(super.get(i).compareTo(element) >= 0) return i;
+    if(element == null){
+      throw new IllegalArgumentException("There should be no Nulls >:^(");
     }
-    return 0;
+    if(super.size() == 0) return 0;
+    for(int i = 0; i < super.size(); i++){
+      if(element.compareTo(super.get(i)) < 0) return i;
+    }
+    return super.size();
   }
 
 }
