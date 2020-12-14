@@ -1,20 +1,22 @@
 import java.util.*;
 public class NoNullArrayList<T> extends ArrayList<T>{
-  private ArrayList<T> data;
 
   public NoNullArrayList(){}
   public NoNullArrayList(int initialCapacity){
     super(initialCapacity);
   }
 
-  public String set(int index, String element){
-    return"";
+  public T set(int index, T element){
+    if(element == null){
+      throw new IllegalArgumentException("Can't add a null");
+    }
+    return super.set(index, element);
   }
 
-  public boolean add(String element){
+  public boolean add(T element){
     return true;
   }
 
-  public void add(int index, String element){
+  public void add(int index, T element){
   }
 }
